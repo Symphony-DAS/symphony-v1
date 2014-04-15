@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <!-- Product name as we want it to appear in Add/Remove Programs-->
+  <?if $(var.Platform) = x64 ?>
+    <?define ProductName = "Symphony (64 bit)" ?>
+    <?define Win64 = "yes" ?>
+    <?define PlatformProgramFilesFolder = "ProgramFiles64Folder" ?>
+    <?define msiProductID = "019E5C61-6F14-4E1C-8D83-2DF1D011C4BA"?>
+  <?else ?>
+    <?define ProductName = "Symphony" ?>
+    <?define Win64 = "no" ?>
+    <?define PlatformProgramFilesFolder = "ProgramFilesFolder" ?>
+    <?define msiProductID = "068FEF52-0EB9-464E-9C6B-5578DE2AA592"?>
+  <?endif ?>
+  
+  <!-- Symphony version-->
+  <?ifdef env.SYMPHONY_VERSION ?>
+    <?define SymphonyVersion = $(env.SYMPHONY_VERSION).$(env.BUILD_NUMBER) ?>
+  <?else ?>
+    <?define SymphonyVersion = 0.0.0.0 ?>
+  <?endif ?>
+</Include>

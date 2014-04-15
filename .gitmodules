@@ -1,0 +1,6 @@
+[submodule "symphony-core"]
+	path = symphony-core
+	url = https://github.com/Symphony-DAS/symphony-core.git
+[submodule "symphony-matlab"]
+	path = symphony-matlab
+	url = https://github.com/Symphony-DAS/symphony-matlab.git

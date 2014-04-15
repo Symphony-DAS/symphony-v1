@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+
+  <?include $(sys.CURRENTDIR)\Config.wxi?>
+
+  <Product Id="$(var.msiProductID)" 
+           Name="$(var.ProductName)"
+           Language="1033"
+           Version="$(var.SymphonyVersion)"
+           Manufacturer="Symphony DAS"
+           UpgradeCode="8014a861-ef99-4b69-9c06-0481c6d4fb78">
+    
+    <Package InstallerVersion="300" 
+             Compressed="yes" 
+             InstallScope="perMachine"/>
+
+    <Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
+    
+		<MajorUpgrade DowngradeErrorMessage="A newer version of Symphony is already installed." />
+    
+    <!--Directory structure-->
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Merge Id="VCRedist"
+             SourceFile="C:\Program Files (x86)\Common Files\Merge Modules\Microsoft_VC100_CRT_$(var.Platform).msm"
+             DiskId="1"
+             Language="0"/>
+      
+      <Directory Id="$(var.PlatformProgramFilesFolder)">
+        <Directory Id="SYMPHONYROOT" Name="Symphony">
+          <Directory Id="SYMPHONYCORE" Name="Core Framework">
+            
+          </Directory>
+        </Directory>
+      </Directory>
+    </Directory>
+
+    <FeatureRef Id="FE.SymphonyUI"/>
+    <FeatureRef Id="FE.SymphonyCore"/>
+
+    <!--VC10 Runtime merge module-->
+    <Feature Id="VCRedist" 
+             Title="Visual C++ 10.0 Runtime" 
+             AllowAdvertise="no"
+             Display="hidden" 
+             Level="1">
+      
+      <MergeRef Id="VCRedist"/>
+    </Feature>
+
+    <!-- Simple UI without EULA or folder selection -->
+    <UI Id="UserInterface">
+      <Property Id="WIXUI_INSTALLDIR" Value="TARGETDIR" />
+      <Property Id="WixUI_Mode" Value="Custom" />
+
+      <TextStyle Id="WixUI_Font_Normal" FaceName="Tahoma" Size="8" />
+      <TextStyle Id="WixUI_Font_Bigger" FaceName="Tahoma" Size="9" Bold="yes" />
+      <TextStyle Id="WixUI_Font_Title"  FaceName="Tahoma" Size="9" Bold="yes" />
+
+      <Property Id="DefaultUIFont" Value="WixUI_Font_Normal" />
+
+      <DialogRef Id="ProgressDlg" />
+      <DialogRef Id="ErrorDlg" />
+      <DialogRef Id="FilesInUse" />
+      <DialogRef Id="FatalError" />
+      <DialogRef Id="UserExit" />
+
+      <Publish Dialog="ExitDialog" Control="Finish" Event="EndDialog" Value="Return" Order="999">1</Publish>
+      <Publish Dialog="WelcomeDlg" Control="Next" Event="EndDialog" Value="Return" Order="2"></Publish>
+
+    </UI>
+    <UIRef Id="WixUI_Common" />
+    
+  </Product>
+</Wix>
