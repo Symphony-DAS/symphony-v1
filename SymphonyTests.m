@@ -25,8 +25,24 @@ classdef SymphonyTests < matlab.unittest.TestCase
     
     methods (Test)
         
-        function runCoreTests(testCase)            
-            asm = fullfile(testCase.coreDir,'Symphony.Core.Tests','bin',testCase.platform,'Release','Symphony.Core.Tests.dll');
+        function runCoreTests(testCase)
+            testDir = fullfile(testCase.coreDir,'Symphony.Core.Tests','bin',testCase.platform,'Release');
+            
+            % Remove HDF5 native dependencies that conflict with Matlab. These will not be installed by the installer.
+            if exist(fullfile(testDir,'hdf5_hldll.dll'), 'file')
+                delete(fullfile(testDir,'hdf5_hldll.dll'));
+            end
+            if exist(fullfile(testDir,'hdf5dll.dll'), 'file')
+                delete(fullfile(testDir,'hdf5dll.dll'));
+            end
+            if exist(fullfile(testDir,'szip.dll'), 'file')
+                delete(fullfile(testDir,'szip.dll'));
+            end
+            if exist(fullfile(testDir,'zlib.dll'), 'file')
+                delete(fullfile(testDir,'zlib.dll'));
+            end
+            
+            asm = fullfile(testDir,'Symphony.Core.Tests.dll');
             testCase.runNUnitTests(asm);
         end
         
@@ -49,6 +65,7 @@ classdef SymphonyTests < matlab.unittest.TestCase
             
             runner = NUnit.Core.RemoteTestRunner();
             runner.Load(package);
+            unload = onCleanup(@()runner.Unload());
             
             result = runner.Run(NUnit.Core.NullListener());
             testCase.verifyResult(result);
