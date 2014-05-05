@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <RegexTransform Include="$(SolutionRoot)\symphony-core\src\symphony-core\CommonAssemblyInfo.cs">
-      <Find>(?&lt;major&gt;\d+)\.(?&lt;minor&gt;\d+)\.\d+\.(?&lt;revision&gt;\d+)</Find>
+      <Find>(?&lt;major&gt;\d+)\.(?&lt;minor&gt;\d+)\.(?&lt;patch&gt;\d+)</Find>
       <ReplaceWith>$(BUILD_NUMBER)</ReplaceWith>
     </RegexTransform>
   </ItemGroup>
