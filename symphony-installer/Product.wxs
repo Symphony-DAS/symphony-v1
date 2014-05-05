@@ -6,7 +6,7 @@
   <Product Id="$(var.msiProductID)" 
            Name="$(var.ProductName)"
            Language="1033"
-           Version="$(var.SymphonyVersion)"
+           Version="!(bind.FileVersion.F.SymphonyCore)"
            Manufacturer="Symphony DAS"
            UpgradeCode="8014a861-ef99-4b69-9c06-0481c6d4fb78">
     

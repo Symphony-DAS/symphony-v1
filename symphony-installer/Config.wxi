@@ -12,11 +12,4 @@
     <?define PlatformProgramFilesFolder = "ProgramFilesFolder" ?>
     <?define msiProductID = "068FEF52-0EB9-464E-9C6B-5578DE2AA592"?>
   <?endif ?>
-  
-  <!-- Symphony version-->
-  <?ifdef env.SYMPHONY_VERSION ?>
-    <?define SymphonyVersion = $(env.SYMPHONY_VERSION).$(env.BUILD_NUMBER) ?>
-  <?else ?>
-    <?define SymphonyVersion = 0.0.0.0 ?>
-  <?endif ?>
 </Include>
