@@ -17,7 +17,7 @@
   <Target Name="Go" DependsOnTargets="UpdateAssemblyVersion; Build">
   </Target>
 
-  <Target Name="UpdateAssemblyVersion" Condition="'$(BUILD_NUMBER)' != ''">
+  <Target Name="UpdateAssemblyVersion" Condition="'$(SYMPHONY_VERSION)' != ''">
     <RegexTransform Items="@(RegexTransform)" />
   </Target>
 
