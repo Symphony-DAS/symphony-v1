@@ -10,7 +10,7 @@
   <ItemGroup>
     <RegexTransform Include="$(SolutionRoot)\symphony-core\src\symphony-core\CommonAssemblyInfo.cs">
       <Find>(?&lt;major&gt;\d+)\.(?&lt;minor&gt;\d+)\.(?&lt;patch&gt;\d+)</Find>
-      <ReplaceWith>$(BUILD_NUMBER)</ReplaceWith>
+      <ReplaceWith>$(SYMPHONY_VERSION)</ReplaceWith>
     </RegexTransform>
   </ItemGroup>
 
