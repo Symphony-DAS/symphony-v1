@@ -14,6 +14,7 @@
   <ExtensionExcludes />
   <DirExcludes>
     <Dir>Stubs</Dir>
+    <Dir>Unit Tests</Dir>
   </DirExcludes>
   <IncludeFiles />
   <RegExExcludes>
@@ -23,12 +24,13 @@
   <Fragment>
     <ComponentGroup Id="CG_SymphonyUI">
       <ComponentRef Id="comp_9B15BD85D3C24848B01A673D9479F2CC" />
-      <ComponentRef Id="comp_60C553BCC0B746829367363BB9268055" />
       <ComponentRef Id="comp_8C11D162BD5146D2BB15136D3240DE70" />
       <ComponentRef Id="comp_EE9EE9AA2FBF4E9A9741589CD2A16F34" />
       <ComponentRef Id="comp_EE3C269544E34C72B0BFA0378C37E7FB" />
       <ComponentRef Id="comp_423A8A1A40664D84BB57A17742899CFF" />
       <ComponentRef Id="comp_AFE39D7D4575449C8E19F2A6849E7A35" />
+      <ComponentRef Id="comp_257A601D6110444B8CD647634027DA8E" />
+      <ComponentRef Id="comp_2138D69C8E874E81BF19490E742F08D0" />
       <ComponentRef Id="comp_555DB8BBD07B4ABB82567A1C56817F11" />
       <ComponentRef Id="comp_34DBA3AD751B4A59B715D8802886B06C" />
       <ComponentRef Id="comp_715CD51B8AA145E18A8CBCED0E2EE6F6" />
@@ -60,6 +62,8 @@
       <ComponentRef Id="comp_6CEF95EB2FB74FE6A51A26768C5471A6" />
       <ComponentRef Id="comp_7392EC26533E4A0481580A6CCDFBD1AC" />
       <ComponentRef Id="comp_5420F6E675944937BBB6D98D28E03944" />
+      <ComponentRef Id="comp_22E3A39FA3A94D12A8B2D30AE8260ED7" />
+      <ComponentRef Id="comp_0E602EA97AB241BE9E4A2DFA75715509" />
       <ComponentRef Id="comp_00481D270EAE43C385816E75A8670E72" />
       <ComponentRef Id="comp_36AFF45F310A42C59ECF85BA89579C46" />
       <ComponentRef Id="comp_7FC806EA968C4601B42F000461EAF97F" />
@@ -69,8 +73,6 @@
       <ComponentRef Id="comp_7CB0C62D7A844324B41B3B39CB455738" />
       <ComponentRef Id="comp_AC22022A06A843C994B23876D5358136" />
       <ComponentRef Id="comp_C29DC6DDEF904C6EADAC0EE5BC6C932D" />
-      <ComponentRef Id="comp_0A11B5B480F04522BEAB321ED5078A3B" />
-      <ComponentRef Id="comp_F0EAC365F6A9406D92116E206744D298" />
       <ComponentRef Id="comp_1D4AD896D65E4C5B8AFF1E3F6B99A514" />
       <ComponentRef Id="comp_0081125A00BB4750BAD1E967B56B2F4A" />
       <ComponentRef Id="comp_BD8390658C5141F2B9F7E1A5AB04DBA3" />
@@ -96,9 +98,6 @@
       <Component Id="comp_9B15BD85D3C24848B01A673D9479F2CC" Guid="EA41880C-F1D6-472F-921A-8262FE4067E4">
         <File Id="file_7B04E40E781F4ECEB5558626A3630323" KeyPath="yes" Source="..\symphony-matlab\addSymphonyAssembly.m" />
       </Component>
-      <Component Id="comp_60C553BCC0B746829367363BB9268055" Guid="32C3D275-3994-4633-88CB-4E46D7D249C2">
-        <File Id="file_C1EB446309C148199E53016CF3CD23FF" KeyPath="yes" Source="..\symphony-matlab\debug_log.xml" />
-      </Component>
       <Component Id="comp_8C11D162BD5146D2BB15136D3240DE70" Guid="1DC8778E-5906-484F-B59C-238FEC50CCB0">
         <File Id="file_1787BF36A2E94E1C80F25A8751460524" KeyPath="yes" Source="..\symphony-matlab\editParameters.m" />
       </Component>
@@ -113,6 +112,12 @@
       </Component>
       <Component Id="comp_AFE39D7D4575449C8E19F2A6849E7A35" Guid="F4A4F2FB-AC7F-4F0B-B141-EBA5EC2B368F">
         <File Id="file_4D4393B28F64484EAA569CBB1DCF9E1E" KeyPath="yes" Source="..\symphony-matlab\FigureHandler.m" />
+      </Component>
+      <Component Id="comp_257A601D6110444B8CD647634027DA8E" Guid="CC199A85-125D-4BC0-A491-2AC2FD40F6C5">
+        <File Id="file_12641DF83B99445CA17F5305843A123B" KeyPath="yes" Source="..\symphony-matlab\log.xml" />
+      </Component>
+      <Component Id="comp_2138D69C8E874E81BF19490E742F08D0" Guid="E73FFB01-F49A-4323-821C-C990B2B9BD2A">
+        <File Id="file_915E05AFD7B14BA788FA3BC37EAD5FA5" KeyPath="yes" Source="..\symphony-matlab\Module.m" />
       </Component>
       <Component Id="comp_555DB8BBD07B4ABB82567A1C56817F11" Guid="AD2B7BF3-497D-4CF4-9C0F-BE4A98189F9D">
         <File Id="file_592BF18E84FD452CA0349833AD0DEF95" KeyPath="yes" Source="..\symphony-matlab\newEpochGroup.m" />
@@ -223,6 +228,14 @@
           <File Id="file_07F9969537F746C5A731F522BCAC37A1" KeyPath="yes" Source="..\symphony-matlab\Images\stop.png" />
         </Component>
       </Directory>
+      <Directory Id="dir_9A390F62ACEB4AB8BDB3343B1B6346EC" Name="Modules">
+        <Component Id="comp_22E3A39FA3A94D12A8B2D30AE8260ED7" Guid="CE5139CC-E9BA-45D1-BC47-5A1BFCE15534">
+          <File Id="file_136AFC2F73BF49C4AD7E28F0B15E3568" KeyPath="yes" Source="..\symphony-matlab\Modules\BackgroundControl.m" />
+        </Component>
+        <Component Id="comp_0E602EA97AB241BE9E4A2DFA75715509" Guid="9EE60295-C341-474E-98BB-8621F01B8544">
+          <File Id="file_6717D0D51D0E4DC58837F07C35A58F02" KeyPath="yes" Source="..\symphony-matlab\Modules\LogViewer.m" />
+        </Component>
+      </Directory>
       <Directory Id="dir_7FCC436B4EBB40B3ABA1110815C21CA7" Name="Simulations">
         <Component Id="comp_00481D270EAE43C385816E75A8670E72" Guid="DF8CFF64-26D3-464D-8DE9-387B34BF12BB">
           <File Id="file_76653D841DF042838D952FEC704DCA70" KeyPath="yes" Source="..\symphony-matlab\Simulations\LoopbackSimulation.m" />
@@ -252,14 +265,6 @@
         </Component>
         <Component Id="comp_C29DC6DDEF904C6EADAC0EE5BC6C932D" Guid="702866FB-B0B6-49BF-9A6F-ED926F33E77B">
           <File Id="file_4A088340268C4FA884209AD55D990FD3" KeyPath="yes" Source="..\symphony-matlab\Stimulus Generators\WaveformGenerator.m" />
-        </Component>
-      </Directory>
-      <Directory Id="dir_33C1F17A65894166B67E6E8BE2F3C797" Name="Unit Tests">
-        <Component Id="comp_0A11B5B480F04522BEAB321ED5078A3B" Guid="E878C75A-5B13-4893-99F1-5BFCE52F2460">
-          <File Id="file_2F735A0D3E484DB7A072545C389A9537" KeyPath="yes" Source="..\symphony-matlab\Unit Tests\runTestSuite.m" />
-        </Component>
-        <Component Id="comp_F0EAC365F6A9406D92116E206744D298" Guid="CF04E46F-DB38-47D3-925B-389B9A06D056">
-          <File Id="file_9973C6F1584940BCA24348F5074D1FC8" KeyPath="yes" Source="..\symphony-matlab\Unit Tests\StimulusGeneratorTests.m" />
         </Component>
       </Directory>
       <Directory Id="dir_A54C13FD02554C25A7C7A9AA23549FA6" Name="Utilities">
